@@ -1,0 +1,285 @@
+[
+    {
+        "units": [
+            "MotRifles_CMD_SOV"
+        ],
+        "background": "Command",
+        "character": "AKM",
+        "attachments": [
+            "Uniform",
+            "Cap"
+        ]
+    },
+    {
+        "units": [
+            "MotRifles_RPG22_SOV",
+            "MotRifles_SOV",
+            "MotRifles_BTR_SOV",
+            "MotRifles_HMG_SOV"
+        ],
+        "background": "FullSquad",
+        "character": "AKM",
+        "attachments": [
+            "Uniform",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "MotRifles_Metis_SOV"
+        ],
+        "background": "FullSquad",
+        "character": "AKM",
+        "attachments": [
+            "Uniform",
+            "Cap",
+            "Sunglasses"
+        ]
+    },
+    {
+        "units": [
+            "MotRifles_CMD_TTsko_SOV"
+        ],
+        "background": "Command",
+        "character": "AKM",
+        "attachments": [
+            "Camouflage",
+            "Cap"
+        ]
+    },
+    {
+        "units": [
+            "MotRifles_TTsko_SOV",
+            "MotRifles_BTR_TTsko_SOV",
+            "MotRifles_HMG_TTsko_SOV"
+        ],
+        "background": "FullSquad",
+        "character": "AKM",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "MotRifles_Metis_TTsko_SOV"
+        ],
+        "background": "FullSquad",
+        "character": "AKM",
+        "attachments": [
+            "Camouflage",
+            "Cap",
+            "Sunglasses"
+        ]
+    },
+    {
+        "units": [
+            "Engineers_CMD_SOV"
+        ],
+        "background": "Command",
+        "character": "AKM",
+        "attachments": [
+            "Uniform",
+            "Cap",
+            "Sunglasses"
+        ]
+    },
+    {
+        "units": [
+            "Engineers_Flam_SOV",
+            "Engineers_SOV"
+        ],
+        "background": "Engineer",
+        "character": "AKM",
+        "attachments": [
+            "Uniform",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "Engineers_CMD_TTsko_SOV"
+        ],
+        "background": "Command",
+        "character": "AKM",
+        "attachments": [
+            "Camouflage",
+            "Cap",
+            "Sunglasses"
+        ]
+    },
+    {
+        "units": [
+            "Engineers_TTsko_SOV",
+            "Engineers_Flam_TTsko_SOV"
+        ],
+        "background": "Engineer",
+        "character": "AKM",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "HMGteam_NSV_SOV",
+            "HMGteam_PKM_SOV"
+        ],
+        "background": "Hmg",
+        "character": "AKM",
+        "attachments": [
+            "Uniform",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "HMGteam_AGS17_SOV"
+        ],
+        "background": "Hmg",
+        "character": "AKM",
+        "attachments": [
+            "Uniform",
+            "Cap"
+        ]
+    },
+    {
+        "units": [
+            "HMGteam_NSV_TTsko_SOV",
+            "HMGteam_PKM_TTsko_SOV"
+        ],
+        "background": "Hmg",
+        "character": "AKM",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "HMGteam_AGS17_TTsko_SOV"
+        ],
+        "background": "Hmg",
+        "character": "AKM",
+        "attachments": [
+            "Camouflage",
+            "Cap"
+        ]
+    },
+    {
+        "units": [
+            "ATteam_Fagot_SOV",
+            "ATteam_Konkurs_SOV"
+        ],
+        "background": "Atgm",
+        "character": "AKM",
+        "attachments": [
+            "Uniform",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "ATteam_Konkurs_TTsko_SOV",
+            "ATteam_KonkursM_TTsko_SOV"
+        ],
+        "background": "Atgm",
+        "character": "AKM",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "ATteam_RCL_SPG9_SOV"
+        ],
+        "background": "Rcl",
+        "character": "AKM",
+        "attachments": [
+            "Uniform",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "FireSupport_TTsko_SOV"
+        ],
+        "background": "Rcl",
+        "character": "AKM",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "HvyScout_SOV"
+        ],
+        "background": "Manpad",
+        "character": "AKM",
+        "attachments": [
+            "Uniform",
+            "Cap"
+        ]
+    },
+    {
+        "units": [
+            "Scout_SOV",
+            "Engineers_Scout_SOV"
+        ],
+        "background": "Manpad",
+        "character": "AKM",
+        "attachments": [
+            "Uniform",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "HvyScout_TTsko_SOV"
+        ],
+        "background": "Manpad",
+        "character": "AKM",
+        "attachments": [
+            "Camouflage",
+            "Cap"
+        ]
+    },
+    {
+        "units": [
+            "Scout_TTsko_SOV",
+            "Engineers_Scout_TTsko_SOV"
+        ],
+        "background": "Manpad",
+        "character": "AKM",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "MANPAD_Igla_SOV"
+        ],
+        "background": "Manpad",
+        "character": "AKM",
+        "attachments": [
+            "Uniform",
+            "Cap",
+            "Sunglasses"
+        ]
+    },
+    {
+        "units": [
+            "MANPAD_Igla_TTsko_SOV"
+        ],
+        "background": "Manpad",
+        "character": "AKM",
+        "attachments": [
+            "Camouflage",
+            "Cap",
+            "Sunglasses"
+        ]
+    }
+]

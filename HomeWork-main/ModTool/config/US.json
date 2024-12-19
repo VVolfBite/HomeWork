@@ -1,0 +1,438 @@
+[
+    {
+        "units": [
+            "Engineer_CMD_US"
+        ],
+        "background": "Command",
+        "character": "M16Young",
+        "attachments": [
+            "Camouflage",
+            "Cap"
+        ]
+    },
+    {
+        "units": [
+            "Engineers_US"
+        ],
+        "background": "Engineer",
+        "character": "M16Young",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "Engineers_Flash_US"
+        ],
+        "background": "Engineer",
+        "character": "M16Young",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "Engineers_Dragon_US"
+        ],
+        "background": "FullSquad",
+        "character": "M16Young",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "Rifles_half_CMD_US"
+        ],
+        "background": "Command",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Cap"
+        ]
+    },
+    {
+        "units": [
+            "Rifles_half_LAW_US"
+        ],
+        "background": "HalfSquad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "Rifles_half_Dragon_US",
+            "Rifles_half_AT4_US"
+        ],
+        "background": "HalfSquad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "Rifles_CMD_US"
+        ],
+        "background": "Command",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Cap",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "Rifles_LAW_US",
+            "Rifles_US"
+        ],
+        "background": "FullSquad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "NatGuard_Engineers_CMD_US"
+        ],
+        "background": "Command",
+        "character": "M16Young",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "NatGuard_Engineers_M67_US",
+            "NatGuard_Engineers_US"
+        ],
+        "background": "Engineer",
+        "character": "M16Young",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "NatGuard_Engineers_Flam_US"
+        ],
+        "background": "Engineer",
+        "character": "M16Young",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Sunglasses"
+        ]
+    },
+    {
+        "units": [
+            "Rifles_half_CMD_NG_US"
+        ],
+        "background": "Command",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "Rifles_half_Dragon_NG_US",
+            "Rifles_half_LAW_NG_US"
+        ],
+        "background": "HalfSquad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "NatGuard_CMD_US"
+        ],
+        "background": "Command",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "NatGuard_Dragon_US"
+        ],
+        "background": "FullSquad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "NatGuard_LAW_US",
+            "NatGuard_M67_US"
+        ],
+        "background": "FullSquad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Sunglasses"
+        ]
+    },
+    {
+        "units": [
+            "Rangers_CMD_US"
+        ],
+        "background": "Command",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Cap",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "Ranger_Dragon_US",
+            "Ranger_US"
+        ],
+        "background": "FullSquad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Cap"
+        ]
+    },
+    {
+        "units": [
+            "ATteam_RCL_M40A1_NG_US"
+        ],
+        "background": "Rcl",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "ATteam_TOW_US"
+        ],
+        "background": "Atgm",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Cap"
+        ]
+    },
+    {
+        "units": [
+            "ATteam_ITOW_NG_US",
+            "ATteam_ITOW_US"
+        ],
+        "background": "Atgm",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "ATteam_TOW2_US"
+        ],
+        "background": "Atgm",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "Rifles_Cavalry_US"
+        ],
+        "background": "FullSquad",
+        "character": "M16Young",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "AeroRifles_US"
+        ],
+        "background": "FullSquad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Sunglasses"
+        ]
+    },
+    {
+        "units": [
+            "Rifles_HMG_US"
+        ],
+        "background": "FullSquad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "HMGteam_M60_NG_US",
+            "HMGteam_M2HB_NG_US"
+        ],
+        "background": "Hmg",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "HMGteam_M60_US",
+            "HMGteam_M2HB_US"
+        ],
+        "background": "Hmg",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "LightRifles_CMD_US"
+        ],
+        "background": "Command",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Cap"
+        ]
+    },
+    {
+        "units": [
+            "LightRifles_RCL_US"
+        ],
+        "background": "FullSquad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "LightRifles_LAW_US"
+        ],
+        "background": "FullSquad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "Scout_US"
+        ],
+        "background": "Manpad",
+        "character": "M16Young",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "LRRP_CEWI_US",
+            "LRRP_US"
+        ],
+        "background": "Manpad",
+        "character": "M16Young",
+        "attachments": [
+            "Camouflage",
+            "Cap",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "Scout_NG_US"
+        ],
+        "background": "Manpad",
+        "character": "M16Young",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    },
+    {
+        "units": [
+            "HvyScout_NG_Dragon_US",
+            "HvyScout_NG_US"
+        ],
+        "background": "Manpad",
+        "character": "M16Young",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "MANPAD_Stinger_C_US"
+        ],
+        "background": "Manpad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet",
+            "Goggles"
+        ]
+    },
+    {
+        "units": [
+            "MANPAD_Redeye_US",
+            "MANPAD_Stinger_NG_US"
+        ],
+        "background": "Manpad",
+        "character": "M16",
+        "attachments": [
+            "Camouflage",
+            "Helmet"
+        ]
+    }
+]
