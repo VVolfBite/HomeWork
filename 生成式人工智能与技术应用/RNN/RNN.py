@@ -36,10 +36,11 @@ print("\nFeature statistics before scaling:")
 print(df[feature_cols].describe())
 
 print("\nStarting feature scaling...")
-# 特征归一化
-scaler = StandardScaler()
-features = scaler.fit_transform(df[feature_cols].values)
-labels = df[target_col].values.reshape(-1, 1)
+# 特征和标签归一化
+feature_scaler = StandardScaler()
+label_scaler = StandardScaler()
+features = feature_scaler.fit_transform(df[feature_cols].values)
+labels = label_scaler.fit_transform(df[target_col].values.reshape(-1, 1))
 print(f"Features shape: {features.shape}, Labels shape: {labels.shape}")
 
 print("\nFeature statistics after scaling:")
@@ -82,74 +83,35 @@ test_loader = DataLoader(TensorDataset(X_test, y_test), batch_size=64)
 print("\nBuilding model...")
 
 class LstmRNN(nn.Module):
-    def __init__(self, stock_count, lstm_size=128, num_layers=1, num_steps=30, 
-                 input_size=7, embed_size=None, dropout=0.0):
-        """
-        LSTM RNN Model with optional embedding for multiple stocks.
-
-        Args:
-            stock_count (int): Number of stock symbols
-            lstm_size (int): Hidden units in each LSTM layer
-            num_layers (int): Number of LSTM layers
-            num_steps (int): Time steps for input sequence
-            input_size (int): Dimensionality of input features
-            embed_size (int): If provided, use embedding for stock symbols
-            dropout (float): Dropout rate applied to LSTM layers
-        """
+    def __init__(self, input_size, hidden_size=64, num_layers=1):
         super().__init__()
-        self.use_embed = embed_size is not None and embed_size > 0
-        self.embed_size = embed_size or -1
-        self.stock_count = stock_count
-        self.num_steps = num_steps
-        self.input_size = input_size
+        self.lstm = nn.LSTM(
+            input_size=input_size,
+            hidden_size=hidden_size,
+            num_layers=num_layers,
+            batch_first=True,
+            dropout=0.4
+        )
+        self.fc1 = nn.Linear(hidden_size, 32)
+        self.relu = nn.ReLU()
+        self.dropout = nn.Dropout(0.3)
+        self.fc2 = nn.Linear(32, 1)
+        
+    def forward(self, x):
+        lstm_out, _ = self.lstm(x)
+        x = self.fc1(lstm_out[:, -1, :])
+        x = self.relu(x)
+        x = self.dropout(x)
+        x = self.fc2(x)
+        return x
 
-        # 如果使用嵌入层
-        if self.use_embed:
-            self.embedding = nn.Embedding(stock_count, self.embed_size)
-            input_size = input_size + self.embed_size
-
-        # 创建LSTM层
-        self.lstm_layers = nn.ModuleList()
-        for i in range(num_layers):
-            return_sequences = (i < num_layers - 1)
-            self.lstm_layers.append(nn.LSTM(
-                input_size if i == 0 else lstm_size,
-                lstm_size,
-                batch_first=True,
-                dropout=dropout if i < num_layers - 1 else 0
-            ))
-
-        # 输出层
-        self.dense = nn.Linear(lstm_size, 1)
-
-    def forward(self, x, symbol_ids=None):
-        """
-        Forward pass for the model.
-
-        Args:
-            x: Input tensor of shape (batch_size, num_steps, input_size)
-            symbol_ids: Optional tensor of shape (batch_size,) containing stock symbol indices
-        Returns:
-            output: Tensor of shape (batch_size, 1)
-        """
-        if self.use_embed and symbol_ids is not None:
-            # 处理嵌入
-            if len(symbol_ids.shape) == 2 and symbol_ids.shape[-1] == 1:
-                symbol_ids = symbol_ids.squeeze(-1)
-            
-            # 获取嵌入并扩展维度
-            embed = self.embedding(symbol_ids)  # (batch_size, embed_size)
-            embed = embed.unsqueeze(1).expand(-1, self.num_steps, -1)  # (batch_size, num_steps, embed_size)
-            x = torch.cat([x, embed], dim=-1)  # (batch_size, num_steps, input_size + embed_size)
-
-        # 通过LSTM层
-        out = x
-        for lstm in self.lstm_layers:
-            out, _ = lstm(out)
-
-        # 通过输出层
-        output = self.dense(out[:, -1, :])  # 只使用最后一个时间步的输出
-        return output
+# 相对误差损失函数
+class RelativeErrorLoss(nn.Module):
+    def __init__(self):
+        super().__init__()
+        
+    def forward(self, pred, target):
+        return torch.mean(torch.abs((pred - target) / (target + 1e-8)))
 
 # 检查是否有可用的GPU
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -157,16 +119,16 @@ print(f"\nUsing device: {device}")
 
 # 创建模型实例
 model = LstmRNN(
-    stock_count=1,  # 当前只有一个股票
-    lstm_size=128,
-    num_layers=3,
-    num_steps=SEQ_LEN,
     input_size=len(feature_cols),
-    dropout=0.2
+    hidden_size=64,
+    num_layers=1
 ).to(device)
 
-criterion = nn.MSELoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+criterion = RelativeErrorLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-5)
+scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+    optimizer, mode='min', factor=0.5, patience=3, verbose=True
+)
 
 # 打印模型参数
 print("\nModel parameters:")
@@ -178,7 +140,8 @@ for name, param in model.named_parameters():
 # =======================
 print("\nStarting training...")
 loss_list = []
-EPOCHS = 50
+EPOCHS = 30
+best_loss = float('inf')
 
 for epoch in range(EPOCHS):
     model.train()
@@ -190,6 +153,10 @@ for epoch in range(EPOCHS):
         pred = model(xb)
         loss = criterion(pred, yb)
         loss.backward()
+        
+        # 梯度裁剪
+        torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+        
         optimizer.step()
         total_loss += loss.item()
         batch_count += 1
@@ -203,6 +170,15 @@ for epoch in range(EPOCHS):
     
     avg_loss = total_loss / len(train_loader)
     loss_list.append(avg_loss)
+    
+    # 更新学习率
+    scheduler.step(avg_loss)
+    
+    # 保存最佳模型
+    if avg_loss < best_loss:
+        best_loss = avg_loss
+        torch.save(model.state_dict(), 'best_model.pth')
+    
     print(f"Epoch {epoch+1}/{EPOCHS}, Loss: {avg_loss:.6f}")
 
 # =======================
@@ -213,7 +189,7 @@ plt.figure(figsize=(10, 6))
 plt.plot(loss_list)
 plt.title("Training Loss")
 plt.xlabel("Epoch")
-plt.ylabel("MSE Loss")
+plt.ylabel("Relative Error Loss")
 plt.grid(True)
 plt.savefig('training_loss.png')
 plt.close()
@@ -235,6 +211,10 @@ with torch.no_grad():
 
 predictions = np.concatenate(predictions, axis=0)
 true_values = np.concatenate(true_values, axis=0)
+
+# 反向转换预测结果
+predictions = label_scaler.inverse_transform(predictions)
+true_values = label_scaler.inverse_transform(true_values)
 
 # 打印一些预测样本
 print("\nPrediction samples (first 5):")
